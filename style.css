@@ -1,0 +1,246 @@
+.title-wrapper img{
+  width: 150px;
+  height: 150px;
+  border-radius: 25px;
+  -webkit-user-drag: none;
+}
+.title-wrapper h1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  letter-spacing: 3px;
+}
+.title-wrapper{
+  margin-top: 30px;
+  margin-bottom: 100px;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  -webkit-animation: fadein 2s;
+  -moz-animation: fadein 2s; 
+    -ms-animation: fadein 2s; 
+    -o-animation: fadein 2s; 
+        animation: fadein 2s;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 10px;
+  border: 6px solid transparent;
+  cursor: pointer;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+.panel{
+  width: 500px;
+  height: fit-content;
+  border: 1px solid rgba(0, 0, 0, 0.151);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.199);
+  border-radius: 10px;
+  margin-top: 50px;
+  padding: 20px;
+  padding-top: 30px;
+  transition: .5s;
+}
+.inp{
+  width: 300px;
+  height: 25px;
+  padding: 5px;
+  padding-left: 6px;
+  border: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.253);
+  border-radius: 5px;
+  outline: none;
+  margin: 10px;
+  color: grey;
+  transition: .5s;
+  text-overflow: ellipsis;
+}
+
+.inp:focus{
+  letter-spacing: 1px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.253);
+  color: rgb(0, 132, 255);
+}
+.inp:focus::placeholder{
+  color: rgb(0, 132, 255);
+}
+
+.checkbox-spam{
+  width: 300px;
+  height: 25px;
+  padding: 5px;
+  padding-left: 6px;
+  border: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.253);
+  border-radius: 5px;
+  outline: none;
+  margin: 10px;
+  color: grey;
+  transition: .5s;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: .5s;
+}
+
+.hidden{
+  display: none;
+}
+
+.impBtn{
+  width: 300px;
+  height: 35px;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 5px;
+  border: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.253);
+  border-radius: 5px;
+  outline: none;
+  margin: 10px;
+  margin-top: 30px;
+  position: relative;
+  color: white;
+  background: rgb(0, 119, 255);
+  transition: .5s;
+}
+
+.impBtn:hover{
+  background: red;
+  letter-spacing: 1px;
+}
+
+#display{
+  margin-top: 10px;
+  font-size: 18px;
+}
+.checked{
+  border: 1px solid rgb(0, 119, 255);
+  color: black;
+  transition: .5s;
+}
+.blue{
+  margin-top: 1px;
+  border: 1px solid rgb(0, 119, 255);
+  transition: .5s;
+}
+
+.prev-floods{
+  width: 500px;
+  height: auto;
+  max-height: 350px;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  transition: .5s;
+}
+
+.miniPanel{
+  width: 90%;
+  height: auto;
+  border-radius: 5px;
+  margin: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.295);
+  transition: .5s;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.miniPanel .wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.miniPanel .link{
+  margin: 8px;
+  text-align: left;
+  width: 300px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.miniPanel button{
+  margin: 8px;
+  width: 80px;
+  height: 25px;
+  border: 1px solid rgba(107, 107, 107, 0.171);
+  color: white;
+  background: rgb(0, 119, 255);
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.miniPanel button:hover{
+  letter-spacing: 1px;
+}
+
+.miniPanel .details{
+  width: 100%;
+  text-align: left;
+  margin: 10px;
+  display: none;
+  transition: .5s;
+}
+
+.controls{
+  width: 0px;
+  margin: 0px;
+  height: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0%;
+}
