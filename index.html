@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Meets Flooder Tool</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" type="image/jpg" href="/assets/icon.PNG"/>
+</head>
+
+<body>
+    <center>
+        <div class="title-wrapper">
+            <img src="assets/logo.PNG">
+            <h1>Google Meets <span id="flood" style="color: rgb(0, 132, 255);">Flooder</span> Tool</h1>
+        </div>
+        <div class="panel">
+            <input type="text" class="inp" placeholder="Attack Name..."/><br>
+            <input type="text" class="inp" placeholder="Google Meet Link..."/><br>
+            <input type="number" class="inp" max=10 min=1 placeholder="Amount of Bots...                                    Max(10)"/><br>
+            <span class="checkbox-spam">
+                <label style="cursor:pointer" for="spam">Spam Google Meet Chat: </label>
+                <input id="spam" name="spam" type="checkbox"/><br>
+            </span>
+            <input type="text" class="inp blue hidden" placeholder="Phrase to be Spammed..."/><br>
+            <button class="impBtn" id="submit">Flood Google Meeting</button><br>
+        </div><br>
+        <span id="display"></span>
+        <div class="panel hidden">
+            <h3>Previous Floods: </h3><br>
+            <div class="prev-floods"></div><br>
+            <button class="impBtn" id="reset">Remove Saved Attacks</button><br>
+        </div><br>
+        <a href="info.html" style="margin:10px;text-decoration: none;color: rgb(0, 132, 255);">How to use... 💁‍♂️</a>
+    <script src="script.js"></script>
+</body>
+
+</html>
