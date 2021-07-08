@@ -26,7 +26,7 @@ submit.addEventListener("click", function () {
         flood(attack, link.value, botCount, phrase, spam, dateTime())
     }
     else {
-        convey("Please fill in all values!", "red")
+        convey("Please fill in all parameters!", "red")
     }
 })
 
