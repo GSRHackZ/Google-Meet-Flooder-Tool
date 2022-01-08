@@ -4,16 +4,23 @@ const submit = document.getElementById("submit")
 const display = document.getElementById("display")
 const prevDisplay = document.getElementsByClassName("panel hidden")[0]
 const prevFloodsDisplay = document.getElementsByClassName("prev-floods")[0]
-const max = 10
-let attack = inps[0], link = inps[1], botCount = inps[2], phrase = "", spam = false, prm, result = false, prevFloods = [];
-
+const max = 10;
+let attack = inps[0], link = inps[1], botCount = inps[2], phrase = "", spam = false, prm, result = false, prevFloods = [],clicked=false;
 if (localStorage.getItem("prevFloods") !== null) {
     prevFloods = JSON.parse(localStorage.getItem("prevFloods"))
 }
 
-
 submit.addEventListener("click", function () {
     if (link.value.trim().length > 0 && botCount.value.trim().length > 0) {
+        if(spam!==false){
+            if(isCuss(phrase)){
+                let temp="";
+                for(let i=0;i<phrase.value.length;i++){
+                    temp+="*";
+                }
+                phrase=temp;
+            }
+        }
         if (botCount.value > max) {
             botCount.value = max;
         }
@@ -26,22 +33,47 @@ submit.addEventListener("click", function () {
         flood(attack, link.value, botCount, phrase, spam, dateTime())
     }
     else {
-        convey("Please fill in all parameters!", "red")
+        convey("Please fill in all values!", "red")
     }
 })
 
-spamCheck.addEventListener("change", function () {
-    if (spamCheck.checked) {
-        spamCheck.parentElement.classList.add("checked")
-        phrase = inps[3]
-        spam = true
-        phrase.classList.remove("hidden")
+function isCuss(phrase){
+    let result = false;
+    let backUp = [];
+    if(typeof phrase !== "string"){
+        phrase = phrase.value;
     }
-    else {
-        phrase.classList.add("hidden")
-        phrase = ""
-        spam = false
-        spamCheck.parentElement.classList.remove("checked")
+    let usable = phrase.replace(/[.,\/#!?$%\^&\*;:{}=\-_`~()]/g," ").toLowerCase().split(" ");
+    for(let i=0;i<cusses.length;i++){
+        for(let j=0;j<usable.length;j++){
+            if(cusses[i].word == usable[j]||usable[j]==cusses[i].word){
+                backUp.push(usable);
+                result = true;
+            }
+        }
+    }
+    if(backUp.length>0){
+        result=true;
+    }
+    return result;
+}
+
+spamCheck.addEventListener("change", function () {
+    if(!clicked){
+        clicked=true;
+        if (spamCheck.checked) {
+            spamCheck.parentElement.classList.add("checked")
+            phrase = inps[3]
+            spam = true
+            smoothDisplay(phrase,"hidden",2);
+        }
+        else {
+            smoothDisplay(phrase,"hidden",1);
+            phrase = ""
+            spam = false
+            spamCheck.parentElement.classList.remove("checked")
+        }
+        clicked=false;
     }
 })
 
@@ -57,12 +89,30 @@ function convey(msg, color) {
     },2500)
 }
 
+function smoothDisplay(elem,thing,state){
+    elem.style.opacity="0%";
+    setTimeout(()=>{
+        if(state==1){
+            elem.classList.add(thing)
+        }
+        else if(state==2){
+            elem.classList.remove(thing)
+        }
+    },200)
+    setTimeout(()=>{
+        elem.style.opacity="100%";
+    },750)
+}
+
 function flood(attack, link, bots, phrase, spam, date) {
     result = false
-    let object = { "attack": attack.value, "link": link, "bots": bots.value, "phrase": phrase.value, "spam": spam, "when": date }
+    if(typeof phrase !== "string"){
+        phrase = phrase.value;
+    }
+    let object = { "attack": attack.value, "link": link, "bots": bots.value, "phrase": phrase, "spam": spam, "when": date }
     if (spam) {
-        if (phrase.value.trim().length > 0) {
-            result = `${link}${prm}=true&spam=${spam}&phrase=${phrase.value}`
+        if (phrase.trim().length > 0) {
+            result = `${link}${prm}=true&spam=${spam}&phrase=${phrase}`
         }
         else {
             convey("Please fill in phrase to spammed...", "red")
