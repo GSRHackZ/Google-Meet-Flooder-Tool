@@ -1,6 +1,7 @@
 # Google-Meet-Flooder-Tool 🌊
 Flood any class or meeting with chat spamming bots. Destruction! 😈
 <h4>⭐ Now works with updated google meets ⭐</h4>
+<h4>✔ Added profanity filter so chats aren't spammed with profanities. This thing wasn't made to be used in such a malicous way 🤦‍♂️ ✔ </h4>
 
 
 <h3>Steps for use: </h3>
